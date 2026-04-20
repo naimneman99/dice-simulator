@@ -14,6 +14,6 @@ function renderTimeline() {
   const last10 = timeline.slice(-10);
   const ul = document.getElementById("timeline");
   ul.innerHTML = last10
-    .map((pair) => `<li>[${pair[0]}&${pair[1]}]</li>`)
+    .map((pair) => `<li>${pair[0]}<small>&</small>${pair[1]}</li>`)
     .join("")
 }

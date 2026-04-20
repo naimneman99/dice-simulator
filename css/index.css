@@ -33,3 +33,31 @@ body {
   align-items: center;
   font-size: 10vw;
 }
+
+#timeline-container {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  margin: 10px;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  justify-content: center;
+  margin: 0px;
+  padding: 0px;
+}
+
+li {
+  width: 2rem;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px 0px 0px 2px;
+  background-color: #434343;
+  color: white;
+  border-color: #292929;
+  border-width: 2px 0px 2px 2px;
+  border-style: solid;
+}
