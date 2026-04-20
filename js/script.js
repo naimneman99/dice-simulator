@@ -1,4 +1,5 @@
 const timeline = [];
+
 function roll() {
   const dice1 = Math.ceil(Math.random() * 6);
   const dice2 = Math.ceil(Math.random() * 6);

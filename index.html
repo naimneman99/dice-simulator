@@ -1,27 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dice Simulator | Test your luck!</title>
+    <link href="css/index.css" rel="stylesheet">
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dice Simulator | Test your luck!</title>
-  <link href="css/index.css" rel="stylesheet">
-</head>
+  <body>
 
-<body>
-  <h1>DICE SIMULATOR</h1>
-  <section id="dice-container">
-    <img id="first-dice" class="dice" src="assets/img/dice-1.svg" alt="Number 1 dice">
-    <div class="operator">+</div>
-    <img id="second-dice" class="dice" src="assets/img/dice-2.svg" alt="Number 2 dice">
-    <div class="operator">=</div>
-    <div id="sum">3</div>
-  </section>
-  <button onclick="roll()">ROLL!</button>
-  <div id="timeline-container">
-    <ul id="timeline"></ul>
-  </div>
-  <script src="js/script.js"></script>
-</body>
+    <header class="header">
+      <h1 class="header-titulo">DICE SIMULATOR</h1>
+      <p class="header-subtitulo">Test your luck by rolling the dice!</p>
+    </header>
+
+    <main class="main-container">
+
+      <section id="dice-container">
+
+        <div class="dice-container">
+          <div class="dice">
+            <img id="first-dice" class="dice-img" src="assets/img/dice-1.svg" alt="Number 1 dice">
+          </div>
+          <div class="dice">
+            <img id="second-dice" class="dice-img" src="assets/img/dice-2.svg" alt="Number 2 dice">
+          </div>
+        </div>
+
+        <div class="dice-sum">
+          <h3>Current Sum</h3>
+          <div id="sum">3</div>
+        </div>
+        
+        <div class="btn-container">
+          <button class="btn-roll" onclick="roll()">ROLL!</button>
+          <button class="btn-reset">Reset</button>
+        </div>
+
+      </section>
+
+      <section class="timeline-container" id="timeline-container">
+        <h2 class="timeline-title">Timeline</h2>
+        <ul class="timeline-results" id="timeline">
+          <li class="timeline-result">
+            <span>2</span>
+            <div class="barra-result"></div>
+          </li>
+          <li class="timeline-result">
+            <span>3</span>
+            <div class="barra-result"></div>
+          </li>
+          <li class="timeline-result">
+            <span>4</span>
+            <div class="barra-result"></div>
+          </li>
+          <li class="timeline-result">
+            <span>5</span>
+            <div class="barra-result"></div>
+          </li>
+          <li class="timeline-result">
+            <span>6</span>
+            <div class="barra-result"></div>
+          </li>
+          <li class="timeline-result">
+            <span>7</span>
+            <div class="barra-result"></div>
+          </li>
+          <li class="timeline-result">
+            <span>8</span>
+            <div class="barra-result"></div>
+          </li>
+          <li class="timeline-result">
+            <span>9</span>
+            <div class="barra-result"></div>
+          </li>
+          <li class="timeline-result">
+            <span>10</span>
+            <div class="barra-result"></div>
+          </li>
+          <li class="timeline-result">
+            <span>11</span>
+            <div class="barra-result"></div>
+          </li>
+          <li class="timeline-result">
+            <span>12</span>
+            <div class="barra-result"></div>
+          </li>
+        </ul>
+      </section>
+
+    </main>
+
+    <script src="js/script.js"></script>
+  </body>
 
 </html>
