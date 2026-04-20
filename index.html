@@ -11,8 +11,8 @@
   <body>
 
     <header class="header">
-      <h1 class="header-title">DICE SIMULATOR</h1>
-      <p class="header-subtitle">Test your luck by rolling the dice!</p>
+      <h1 class="header-title">DICE ROYALE</h1>
+      <p class="header-subtitle">SIMULADOR DE DADOS CON ESTADÍSTICAS EN TIEMPO REAL</p>
     </header>
 
     <main class="main-container">
@@ -35,8 +35,39 @@
         
         <div class="btn-container">
           <button class="btn-roll" onclick="roll()">ROLL!</button>
-          <button class="btn-reset">Reset</button>
+          <button class="btn-reset" onclick="reset()">Reset</button>
         </div>
+
+        <!-- INICIO seccion estadisticas -->
+
+        <section id="stats-container" class="stats-container">
+
+          <div id="stats-header">
+            <h3>ESTADÍSTICAS</h3>
+            <h4>ACTIVO</h4>
+            <h4>Total de lanzamientos: <span id="counter">0</span> </h4>
+          </div>
+
+          <div id="stats-list">
+            <span id="numero-dado">2</span>
+            <span id="numero-dado">3</span>
+            <span id="numero-dado">4</span>
+            <span id="numero-dado">5</span>
+            <span id="numero-dado">6</span>
+            <span id="numero-dado">7</span>
+            <span id="numero-dado">8</span>
+            <span id="numero-dado">9</span>
+            <span id="numero-dado">10</span>
+            <span id="numero-dado">11</span>
+            <span id="numero-dado">12</span>
+          </div>
+
+
+        </section>
+
+        <!-- FIN seccion estadisticas -->
+
+
 
       </section>
 
@@ -92,8 +123,6 @@
           </li>
         </ul>
       </section>
-
-    </main>
 
     <script src="js/script.js"></script>
   </body>
