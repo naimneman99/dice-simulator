@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dice Simulator | Test your luck!</title>
+  <link href="css/index.css" rel="stylesheet">
+</head>
+
+<body>
+  <h1>DICE SIMULATOR</h1>
+  <section id="dice-container">
+    <img id="first-dice" class="dice" src="assets/img/dice-1.svg" alt="Number 1 dice">
+    <div class="operator">+</div>
+    <img id="second-dice" class="dice" src="assets/img/dice-2.svg" alt="Number 2 dice">
+    <div class="operator">=</div>
+    <div id="sum">3</div>
+  </section>
+  <button onclick="roll()">ROLL!</button>
+  <ul id="timeline"></ul>
+  <script src="js/script.js"></script>
+</body>
+
+</html>
