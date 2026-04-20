@@ -1,17 +1,19 @@
 
 .header {
-    background-color: var(--color-primario);
     text-align: center;
+    color: var(--color-secundario);
 }
 
-.header--title {
+.header-title {
     font-size: 2.5rem;
     padding: 20px;
-    color: var(--color-primario);
+    margin: 0;
+    font-family: var(--fuente-principal);
 }
 
-.header--subtitle {
+.header-subtitle {
     font-size: 1.5rem;
     padding-bottom: 20px;
-    color: var(--color-secundario);
+    margin: 0;
+    font-family: var(--fuente-principal);
 }
