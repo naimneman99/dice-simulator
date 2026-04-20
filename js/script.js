@@ -6,7 +6,7 @@ function roll() {
   timeline.push([dice1, dice2]);
   document.getElementById("first-dice").src = `assets/img/dice-${dice1}.svg`;
   document.getElementById("second-dice").src = `assets/img/dice-${dice2}.svg`;
-  document.getElementById("sum").innerHTML = `${sum}`;
+  document.getElementById("sum").textContent = `${sum}`;
   renderTimeline();
 }
 
