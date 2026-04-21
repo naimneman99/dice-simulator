@@ -40,11 +40,6 @@ html {
 
 }
 
-img {
-  width: 200px;
-  height: 200px;
-}
-
 body {
   background-color: var(--color-primario);
 }
