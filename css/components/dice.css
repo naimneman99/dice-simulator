@@ -1,1 +1,11 @@
+.dice-img {
+    animation: shake-dice 0.5s ease-in-out;
+}
 
+@keyframes shake-dice {
+    0% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(15deg) scale(1.1); }
+    50% { transform: rotate(-15deg) scale(1.1); }
+    75% { transform: rotate(10deg) scale(1.1); }
+    100% { transform: rotate(0deg) scale(1); }
+}
