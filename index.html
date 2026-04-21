@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-  <html lang="en">
+  <html lang="es">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Dice Simulator | Test your luck!</title>
+    <title>Dice Royale | Proba tu suerte!</title>
     <link href="css/styles.css" rel="stylesheet">
   </head>
 
   <body>
 
     <header class="header">
-      <h1 class="header-title">DICE SIMULATOR</h1>
-      <p class="header-subtitle">Test your luck by rolling the dice!</p>
+      <h1 class="header-title">DICE ROYALE</h1>
+      <p class="header-subtitle">SIMULADOR DE DADOS CON ESTADÍSTICAS EN TIEMPO REAL</p>
     </header>
 
     <main class="main-container">
@@ -29,22 +29,126 @@
         </div>
 
         <div class="dice-sum">
-          <h3>Current Sum</h3>
+          <h3>Tirada actual</h3>
           <div id="sum">3</div>
         </div>
         
-        <div class="btn-container">
-          <button class="btn-roll" onclick="roll()">ROLL!</button>
-          <button class="btn-reset">Reset</button>
-        </div>
+      <section class="btn-container">
+        <div class="btn-container"> 
+          <button class="btn-roll" onclick="roll()">
+              <img src="assets/icon/icon-dice.svg" alt="Dados" class="btn-icon">
+              <span>TIRAR!</span>
+          </button>
 
+          <button class="btn-reset" onclick="reset()">
+              <img src="assets/icon/icon-restart.svg" alt="Reset" class="btn-icon">
+              <span>RESET</span>
+          </button>
+        </div>
       </section>
 
+      
+
+      <!-- INICIO seccion estadisticas -->
+
+        <section id="stats-container" class="stats-container">
+
+          <div id="stats-header">
+            <h3>ESTADÍSTICAS</h3>
+            <h4>ACTIVO</h4>
+            <h4>Total de lanzamientos: <span id="counter">0</span> </h4>
+          </div>
+
+          <!-- inicio CONTENEDOR GENERAL DE ESTADISTICAS -->
+          <div id="stats-list">
+
+            <div class="estadistica">
+              <span class="resultado">2</span>
+              <span class="conteo">0 veces</span>
+              <span class="porcentaje"> %</span>
+              <span class="estadistica-barra"></span>
+            </div>
+
+            <div class="estadistica">
+              <span class="resultado">3</span>
+              <span class="conteo">0 veces</span>
+              <span class="porcentaje"> %</span>
+              <span class="estadistica-barra"></span>
+            </div>
+
+            <div class="estadistica">
+              <span class="resultado">4</span>
+              <span class="conteo">0 veces</span>
+              <span class="porcentaje"> %</span>
+              <span class="estadistica-barra"></span>
+            </div>
+
+            <div class="estadistica">
+              <span class="resultado">5</span>
+              <span class="conteo">0 veces</span>
+              <span class="porcentaje"> %</span>
+              <span class="estadistica-barra"></span>
+            </div>
+
+            <div class="estadistica">
+              <span class="resultado">6</span>
+              <span class="conteo">0 veces</span>
+              <span class="porcentaje"> %</span>
+              <span class="estadistica-barra"></span>
+            </div>
+
+            <div class="estadistica">
+              <span class="resultado">7</span>
+              <span class="conteo">0 veces</span>
+              <span class="porcentaje"> %</span>
+              <span class="estadistica-barra"></span>
+            </div>
+
+            <div class="estadistica">
+              <span class="resultado">8</span>
+              <span class="conteo">0 veces</span>
+              <span class="porcentaje"> %</span>
+              <span class="estadistica-barra"></span>
+            </div>
+
+            <div class="estadistica">
+              <span class="resultado">9</span>
+              <span class="conteo">0 veces</span>
+              <span class="porcentaje"> %</span>
+              <span class="estadistica-barra"></span>
+            </div>
+
+            <div class="estadistica">
+              <span class="resultado">10</span>
+              <span class="conteo">0 veces</span>
+              <span class="porcentaje"> %</span>
+              <span class="estadistica-barra"></span>
+            </div>
+
+            <div class="estadistica">
+              <span class="resultado">11</span>
+              <span class="conteo">0 veces</span>
+              <span class="porcentaje"> %</span>
+              <span class="estadistica-barra"></span>
+            </div>
+            
+            <div class="estadistica">
+              <span class="resultado">12</span>
+              <span class="conteo">0 veces</span>
+              <span class="porcentaje"> %</span>
+              <span class="estadistica-barra"></span>
+            </div>
+
+          </div>
+          <!-- fin CONTENEDOR GENERAL DE ESTADISTICAS -->
+
+
+        </section>
+
+        <!-- FIN seccion estadisticas -->
+
       <section class="timeline-container" id="timeline-container">
-        <h2 class="timeline-title">Timeline</h2>
-        <div class="timeline-counter">
-          <span id="counter">0</span>
-        </div>
+        <h2 class="timeline-title">Historial de ultimas tiradas</h2>
         <ul class="timeline-results" id="timeline">
           <li class="timeline-result">
             <span>2</span>
@@ -92,8 +196,6 @@
           </li>
         </ul>
       </section>
-
-    </main>
 
     <script src="js/script.js"></script>
   </body>
