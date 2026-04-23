@@ -1,81 +1,78 @@
-@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
-@import url("components/buttons.css");
-@import url("normalize.css");
-@import url("components/grids.css");
-@import url("components/header.css");
-@import url("components/footer.css");
-@import url("components/dice.css");
-@import url("components/stats.css");
-
-
-
-html {
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
-
-:root {
-
-  /* Paleta COLORES*/
-  --color-primario: #139729;
-  --color-secundario: #cfcc18;
-  --color-texto: #686464;
-
-  /* Tipografías*/
-  --fuente-principal: 'Blinker', system-ui, sans-serif;
-
-  /* Regla de los 4px*/
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-5: 20px;
-  --space-6: 24px;
-  --space-8: 32px;
-  --space-12: 48px;
-  --space-16: 64px;
-
-}
-
 body {
-  background-color: var(--color-primario);
-}
-
-
-/* body {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-
 #dice-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
-/* .dice {
+.dice {
   width: 20vw;
   height: 20vw;
   max-width: 200px;
   max-height: 200px;
-} */
+}
 
+.dice:hover:not(.roll) {
+  transform: scale(1.1);
+  transform: skew(6deg, -6deg);
+  transition: transform 0.06s ease-in;
+}
 
-/* #sum {
+.dice:active:not(.roll) {
+  transform: scale(0.9);
+  transition: transform 0.06s ease-in;
+  filter: drop-shadow(0px 0px 2px #292929);
+}
+
+.roll {
+  transform: rotate(-360deg) scale(0.333);
+  transition: transform 0.3s ease-in-out;
+}
+
+.reveal {
+  animation: reveal 0.1s ease-in-out forwards;
+}
+
+@keyframes reveal {
+
+  /* Tiramos el dado */
+  0% {
+    transform: scale(0.1);
+  }
+
+  /* Choca contra el tope */
+  10% {
+    transform: scale(.666);
+    opacity: 0%;
+  }
+
+  /* Se detiene */
+  30% {
+    transform: scale(0.333);
+    opacity: 100%;
+  }
+
+  /* Se revela */
+  100% {
+    transform: scale(1);
+  }
+}
+
+#sum {
   background-color: #434343;
-  border-radius: 14px;
+  border-radius: 24px;
   color: white;
   width: 18vw;
   height: 18vw;
-  max-width: 180px;
-  max-height: 180px;
+  max-width: 200px;
+  max-height: 200px;
   align-self: center;
   display: flex;
   justify-content: center;
@@ -109,4 +106,4 @@ li {
   border-color: #292929;
   border-width: 2px 0px 2px 2px;
   border-style: solid;
-} */ 
+}
