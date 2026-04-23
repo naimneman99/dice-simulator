@@ -1,27 +1,182 @@
 <!DOCTYPE html>
-<html lang="en">
+  <html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dice Simulator | Test your luck!</title>
-  <link href="css/index.css" rel="stylesheet">
-</head>
+    <title>Dice Royale | Proba tu suerte!</title>
+    <link href="css/styles.css" rel="stylesheet">
+  </head>
 
-<body>
-  <h1>DICE SIMULATOR</h1>
-  <div id="dice-container">
-    <img id="first-dice" class="dice" src="assets/img/dice-1.svg" alt="Number 1 dice">
-    <div class="operator">+</div>
-    <img id="second-dice" class="dice" src="assets/img/dice-2.svg" alt="Number 2 dice">
-    <div class="operator">=</div>
-    <div id="sum" class="dice">3</div>
-  </div>
-  <button onclick="roll()">ROLL!</button>
-  <div id="timeline-container">
-    <ul id="timeline"></ul>
-  </div>
-  <script src="js/script.js"></script>
-</body>
+  <body>
+
+    <header class="header">
+      <h1 class="header-title">DICE ROYALE</h1>
+      <p class="header-subtitle">SIMULADOR DE DADOS CON ESTADÍSTICAS EN TIEMPO REAL</p>
+    </header>
+
+    <main class="main-container">
+
+      <section id="dice-container" class="dice-container">
+
+        <div class="dices">
+          <div class="dice">
+            <img id="first-dice" class="dice-img" src="assets/img/dice-1.svg" alt="Number 1 dice">
+          </div>
+          <div class="dice">
+            <img id="second-dice" class="dice-img" src="assets/img/dice-1.svg" alt="Number 2 dice">
+          </div>
+        </div>
+
+        <div class="dice-sum">
+          <h3 class="dice-sum-title">Current Sum</h3>
+          <p id="sum" class="dice-sum-value">2</p>
+        </div>
+        
+        
+        <div class="btn-container"> 
+        <button class="btn-roll" onclick="roll()">
+            <img src="assets/icon/icon-dice.svg" alt="Dados" class="btn-icon">
+            <span>TIRAR!</span>
+          </button>
+          
+          <button class="btn-reset" onclick="reset()">
+            <img src="assets/icon/icon-restart.svg" alt="Reset" class="btn-icon">
+            <span>RESET</span>
+          </button>
+        </div>
+        
+      </section>
+
+      <!-- INICIO seccion estadisticas -->
+      <section id="stats-container" class="stats-container">
+        
+        <div>
+          <h2 class="stats-title">ESTADÍSTICAS</h2>
+          <p class="stats-total">Total de lanzamientos: <span id="counter">0</span></p>
+        </div>
+
+        <ol id="stats-list" class="stats-list">
+
+          <li class="stat">
+            <div class="stat-info">
+              <span class="stat-dice-value">2</span>
+              <span class="stat-count-value">0 veces</span>
+              <span class="stat-percentage-value">0%</span>
+            </div>
+            <progress class="stat-progress-bar" value="0" max="100"></progress>
+          </li>
+
+          <li class="stat">
+            <div class="stat-info">
+              <span class="stat-dice-value">3</span>
+              <span class="stat-count-value">0 veces</span>
+              <span class="stat-percentage-value">0%</span>
+            </div>
+            <progress class="stat-progress-bar" value="0" max="100"></progress>
+          </li>
+
+          <li class="stat">
+            <div class="stat-info">
+              <span class="stat-dice-value">4</span>
+              <span class="stat-count-value">0 veces</span>
+              <span class="stat-percentage-value">0%</span>
+            </div>
+            <progress class="stat-progress-bar" value="0" max="100"></progress>
+          </li>
+
+          <li class="stat">
+            <div class="stat-info">
+              <span class="stat-dice-value">5</span>
+              <span class="stat-count-value">0 veces</span>
+              <span class="stat-percentage-value">0%</span>
+            </div>
+            <progress class="stat-progress-bar" value="0" max="100"></progress>
+          </li>
+
+          <li class="stat">
+            <div class="stat-info">
+              <span class="stat-dice-value">6</span>
+              <span class="stat-count-value">0 veces</span>
+              <span class="stat-percentage-value">0%</span>
+            </div>
+            <progress class="stat-progress-bar" value="0" max="100"></progress>
+          </li>
+
+          <li class="stat">
+            <div class="stat-info">
+              <span class="stat-dice-value">7</span>
+              <span class="stat-count-value">0 veces</span>
+              <span class="stat-percentage-value">0%</span>
+            </div>
+            <progress class="stat-progress-bar" value="0" max="100"></progress>
+          </li>
+
+          <li class="stat">
+            <div class="stat-info">
+              <span class="stat-dice-value">8</span>
+              <span class="stat-count-value">0 veces</span>
+              <span class="stat-percentage-value">0%</span>
+            </div>
+            <progress class="stat-progress-bar" value="0" max="100"></progress>
+          </li>
+
+          <li class="stat">
+            <div class="stat-info">
+              <span class="stat-dice-value">9</span>
+              <span class="stat-count-value">0 veces</span>
+              <span class="stat-percentage-value">0%</span>
+            </div>
+            <progress class="stat-progress-bar" value="0" max="100"></progress>
+          </li>
+
+          <li class="stat">
+            <div class="stat-info">
+              <span class="stat-dice-value">10</span>
+              <span class="stat-count-value">0 veces</span>
+              <span class="stat-percentage-value">0%</span>
+            </div>
+            <progress class="stat-progress-bar" value="0" max="100"></progress>
+          </li>
+
+          <li class="stat">
+            <div class="stat-info">
+              <span class="stat-dice-value">11</span>
+              <span class="stat-count-value">0 veces</span>
+              <span class="stat-percentage-value">0%</span>
+            </div>
+            <progress class="stat-progress-bar" value="0" max="100"></progress>
+          </li>
+          
+          <li class="stat">
+            <div class="stat-info">
+              <span class="stat-dice-value">12</span>
+              <span class="stat-count-value">0 veces</span>
+              <span class="stat-percentage-value">0%</span>
+            </div>
+            <progress class="stat-progress-bar" value="0" max="100"></progress>
+          </li>
+
+        </ol>
+      </section>
+      <!-- FIN seccion estadisticas -->
+
+    </main>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div>
+          <p class="footer-title">DICE ROYALE</p>
+          <small class="footer-copy">&copy; 2026 | TUP UTN</small>
+        </div>
+
+        <a href="https://github.com/naimneman99/dice-simulator" target="_blank" class="footer-git">
+          <img src="./assets/icon/github-icon.svg" alt="GitHub" class="footer-git-icon">
+        </a>
+      </div>
+    </footer>
+     
+    <script src="js/script.js"></script>
+  </body>
 
 </html>
