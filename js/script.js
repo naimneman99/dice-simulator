@@ -24,10 +24,26 @@ function roll() {
   document.getElementById("second-dice").src = `assets/img/dice-${dice2}.svg`;
   document.getElementById("sum").textContent = `${sum}`;
   document.getElementById("counter").textContent = counter;
- 
+
+  animardices();
+
   renderStats();
 }
 
+function animardices() {
+  const imgdado1 = document.getElementById("first-dice");
+  const imgdado2 = document.getElementById("second-dice");
+
+  imgdado1.classList.add("animar-dice");
+  imgdado2.classList.add("animar-dice");
+
+  imgdado1.addEventListener("animationend", () => {
+    imgdado1.classList.remove("animar-dice");
+  });
+  imgdado2.addEventListener("animationend", () => {
+    imgdado2.classList.remove("animar-dice");
+  });
+}
 
 // FUNCION RESET A ESTADO INICIAL
 function reset() {
@@ -64,6 +80,5 @@ function renderStats() {
     porcentajeSpan.textContent = `${porcentaje.toFixed(1)} %`; // ESCRIBE PORCENTAJE CON UN DECIMAL
 
     barra.value = porcentaje;
-    
   });
 }

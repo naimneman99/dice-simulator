@@ -20,8 +20,8 @@ html {
 :root {
 
   /* Paleta COLORES*/
-  --color-primario: #139729;
-  --color-secundario: #cfcc18;
+  --color-primario: #000;
+  --color-secundario: #ecfa24;
   --color-texto: #686464;
 
   /* Tipografías*/
@@ -42,6 +42,8 @@ html {
 
 body {
   background-color: var(--color-primario);
+  font-family: 'Blinker';
+  background-image: radial-gradient(circle, #33ab00, rgba(46, 50, 45, 0.974));
 }
 
 
