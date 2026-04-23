@@ -7,6 +7,9 @@ let contadorresultados = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 // CONTADOR INICIALIZADO EN 0
 let counter = 0;
 
+// cuadro current sum  = 0
+const currentSum = document.getElementById("sum");
+
 // LOGICA DE TIRADA
 function roll() {
   const dice1 = Math.ceil(Math.random() * 6);
@@ -35,7 +38,6 @@ function reset() {
   document.getElementById("first-dice").src = "assets/img/dice-1.svg";
   document.getElementById("second-dice").src = "assets/img/dice-1.svg";
   document.getElementById("counter").textContent = "0";
-  renderTimeline();
   renderStats();
 }
 
@@ -47,16 +49,16 @@ function sumacontador(sum) {
 }
 
 function renderStats() {
-  const filas = document.querySelectorAll(".stats-item"); // BUSCA TODAS LAS FILAS MEDIANTE "estadistica" USADO EN CLASS
+  const filas = document.querySelectorAll(".stat"); // BUSCA TODAS LAS FILAS MEDIANTE "estadistica" USADO EN CLASS
 
   filas.forEach((fila, index) => {
     // RECORRE CADA FILA, CONECTA FILA CON EL ARRAY
     const veces = contadorresultados[index];
     const porcentaje = counter > 0 ? (veces * 100) / counter : 0; // CALCULA PORCENTAJE USANDO CONTADOR
 
-    const contadorSpan = fila.querySelector(".count-value"); // BUSCA DONDE VA A MOSTRAR CUANTAS VECES SALIO
-    const porcentajeSpan = fila.querySelector(".percentage-value"); // BUSCA DONDE VA A MOSTRAR EL PORCENTAJE
-    const barra = fila.querySelector(".progress-bar"); // BUSCA LA BARRA VISUAL
+    const contadorSpan = fila.querySelector(".stat-count-value"); // BUSCA DONDE VA A MOSTRAR CUANTAS VECES SALIO
+    const porcentajeSpan = fila.querySelector(".stat-percentage-value"); // BUSCA DONDE VA A MOSTRAR EL PORCENTAJE
+    const barra = fila.querySelector(".stat-progress-bar"); // BUSCA LA BARRA VISUAL
 
     contadorSpan.textContent = `${veces} veces`; // ESCRIBE NUMERO DE APARICIONES
     porcentajeSpan.textContent = `${porcentaje.toFixed(1)} %`; // ESCRIBE PORCENTAJE CON UN DECIMAL
