@@ -27,7 +27,7 @@ Seguimos la estructura de carpetas que pidió el profe:
 ## Cómo correrlo?
 1. Clonás el repositorio con `git clone [link del repo]`.
 2. Abrís el `index.html` con el navegador o usando Live Server en VS Code.
-=======
+
 # dice-simulator
 Proyecto web de simulación de tiradas de dados del grupo 20 de programación III UTN FRBB.
 
