@@ -1,0 +1,19 @@
+
+.header {
+    text-align: center;
+    color: var(--color-secundario);
+}
+
+.header-title {
+    font-size: 2.5rem;
+    padding: 20px;
+    margin: 0;
+    font-family: var(--fuente-principal);
+}
+
+.header-subtitle {
+    font-size: 1.5rem;
+    padding-bottom: 20px;
+    margin: 0;
+    font-family: var(--fuente-principal);
+}

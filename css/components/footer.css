@@ -1,0 +1,39 @@
+
+.footer {
+    background-color: var(--color-primario);
+    padding: var(--space) 0;
+    margin-top: 40px;
+}
+
+.footer-container {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: var(--space-4);
+
+  border-top: 1px solid var(--color-secundario);
+}
+
+.footer-title {
+  color: var(--color-secundario);
+  font-size: var(--space-8);
+  font-weight: bold;
+  margin: var(--space-2) 0;
+  text-transform: uppercase;
+}
+
+.footer-copy {
+  color: #000;
+  font-size: var(--space-4);
+}
+
+.footer-git {
+
+}
+
+.footer-git-icon {
+  width: 50px;
+  height: 50px;
+}
+

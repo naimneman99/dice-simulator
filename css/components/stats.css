@@ -1,0 +1,64 @@
+
+.stats-title {
+    font-size: var(--space-8);
+    color: var(--color-secundario);
+    font-family: var(--fuente-principal);
+    margin: var(--space-3) 0;
+}
+
+.stats-total {
+    font-size: var(--space-6);
+    color: var(--color-secundario);
+    font-family: var(--fuente-principal);
+    margin: var(--space-3) 0;
+}
+
+.stats-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.stat {
+    margin: var(--space-4) 0;
+}
+
+.stat-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-2);
+    margin: var(--space-1) var(--space-3);
+}
+
+.stat-dice-value {
+    font-size: var(--space-5);
+    color: var(--color-secundario);
+    font-family: var(--fuente-principal);
+}
+
+.stat-count-value {
+    font-size: var(--space-4);
+    color: var(--color-secundario);
+    font-family: var(--fuente-secundaria);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.stat-percentage-value {
+    font-size: var(--space-4);
+    color: var(--color-secundario);
+    font-family: var(--fuente-secundaria);
+    font-weight: bold;
+}
+
+.stat-progress-bar {
+    width: 100%;
+    height: var(--space-5);
+    background-color: var(--color-secundario);
+    border-radius: var(--space-2);
+    overflow: hidden;
+}
+
+
