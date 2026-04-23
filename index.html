@@ -19,184 +19,154 @@
 
       <section id="dice-container" class="dice-container">
 
-        <div>
+        <div class="dices">
           <div class="dice">
             <img id="first-dice" class="dice-img" src="assets/img/dice-1.svg" alt="Number 1 dice">
           </div>
           <div class="dice">
-            <img id="second-dice" class="dice-img" src="assets/img/dice-2.svg" alt="Number 2 dice">
+            <img id="second-dice" class="dice-img" src="assets/img/dice-1.svg" alt="Number 2 dice">
           </div>
         </div>
 
         <div class="dice-sum">
-          <h3>Tirada actual</h3>
-          <div id="sum">3</div>
+          <h3 class="dice-sum-title">Current Sum</h3>
+          <p id="sum" class="dice-sum-value">2</p>
         </div>
         
-      <section class="btn-container">
+        
         <div class="btn-container"> 
-          <button class="btn-roll" onclick="roll()">
-              <img src="assets/icon/icon-dice.svg" alt="Dados" class="btn-icon">
-              <span>TIRAR!</span>
+        <button class="btn-roll" onclick="roll()">
+            <img src="assets/icon/icon-dice.svg" alt="Dados" class="btn-icon">
+            <span>TIRAR!</span>
           </button>
-
+          
           <button class="btn-reset" onclick="reset()">
-              <img src="assets/icon/icon-restart.svg" alt="Reset" class="btn-icon">
-              <span>RESET</span>
+            <img src="assets/icon/icon-restart.svg" alt="Reset" class="btn-icon">
+            <span>RESET</span>
           </button>
         </div>
+        
       </section>
-
-      
 
       <!-- INICIO seccion estadisticas -->
+      <section id="stats-container" class="stats-container">
+        
+        <div>
+          <h2 class="stats-title">ESTADÍSTICAS</h2>
+          <p class="stats-total">Total de lanzamientos: <span id="counter">0</span></p>
+        </div>
 
-        <section id="stats-container" class="stats-container">
+        <ol id="stats-list" class="stats-list">
 
-          <div id="stats-header">
-            <h3>ESTADÍSTICAS</h3>
-            <h4>ACTIVO</h4>
-            <h4>Total de lanzamientos: <span id="counter">0</span> </h4>
-          </div>
-
-          <!-- inicio CONTENEDOR GENERAL DE ESTADISTICAS -->
-          <div id="stats-list">
-
-            <div class="estadistica">
-              <span class="resultado">2</span>
-              <span class="conteo">0 veces</span>
-              <span class="porcentaje"> %</span>
-              <span class="estadistica-barra"></span>
+          <li class="stat">
+            <div class="stat-info">
+              <span class="stat-dice-value">2</span>
+              <span class="stat-count-value">0 veces</span>
+              <span class="stat-percentage-value">0%</span>
             </div>
+            <progress class="stat-progress-bar" value="0" max="100"></progress>
+          </li>
 
-            <div class="estadistica">
-              <span class="resultado">3</span>
-              <span class="conteo">0 veces</span>
-              <span class="porcentaje"> %</span>
-              <span class="estadistica-barra"></span>
+          <li class="stat">
+            <div class="stat-info">
+              <span class="stat-dice-value">3</span>
+              <span class="stat-count-value">0 veces</span>
+              <span class="stat-percentage-value">0%</span>
             </div>
+            <progress class="stat-progress-bar" value="0" max="100"></progress>
+          </li>
 
-            <div class="estadistica">
-              <span class="resultado">4</span>
-              <span class="conteo">0 veces</span>
-              <span class="porcentaje"> %</span>
-              <span class="estadistica-barra"></span>
+          <li class="stat">
+            <div class="stat-info">
+              <span class="stat-dice-value">4</span>
+              <span class="stat-count-value">0 veces</span>
+              <span class="stat-percentage-value">0%</span>
             </div>
+            <progress class="stat-progress-bar" value="0" max="100"></progress>
+          </li>
 
-            <div class="estadistica">
-              <span class="resultado">5</span>
-              <span class="conteo">0 veces</span>
-              <span class="porcentaje"> %</span>
-              <span class="estadistica-barra"></span>
+          <li class="stat">
+            <div class="stat-info">
+              <span class="stat-dice-value">5</span>
+              <span class="stat-count-value">0 veces</span>
+              <span class="stat-percentage-value">0%</span>
             </div>
+            <progress class="stat-progress-bar" value="0" max="100"></progress>
+          </li>
 
-            <div class="estadistica">
-              <span class="resultado">6</span>
-              <span class="conteo">0 veces</span>
-              <span class="porcentaje"> %</span>
-              <span class="estadistica-barra"></span>
+          <li class="stat">
+            <div class="stat-info">
+              <span class="stat-dice-value">6</span>
+              <span class="stat-count-value">0 veces</span>
+              <span class="stat-percentage-value">0%</span>
             </div>
+            <progress class="stat-progress-bar" value="0" max="100"></progress>
+          </li>
 
-            <div class="estadistica">
-              <span class="resultado">7</span>
-              <span class="conteo">0 veces</span>
-              <span class="porcentaje"> %</span>
-              <span class="estadistica-barra"></span>
+          <li class="stat">
+            <div class="stat-info">
+              <span class="stat-dice-value">7</span>
+              <span class="stat-count-value">0 veces</span>
+              <span class="stat-percentage-value">0%</span>
             </div>
+            <progress class="stat-progress-bar" value="0" max="100"></progress>
+          </li>
 
-            <div class="estadistica">
-              <span class="resultado">8</span>
-              <span class="conteo">0 veces</span>
-              <span class="porcentaje"> %</span>
-              <span class="estadistica-barra"></span>
+          <li class="stat">
+            <div class="stat-info">
+              <span class="stat-dice-value">8</span>
+              <span class="stat-count-value">0 veces</span>
+              <span class="stat-percentage-value">0%</span>
             </div>
+            <progress class="stat-progress-bar" value="0" max="100"></progress>
+          </li>
 
-            <div class="estadistica">
-              <span class="resultado">9</span>
-              <span class="conteo">0 veces</span>
-              <span class="porcentaje"> %</span>
-              <span class="estadistica-barra"></span>
+          <li class="stat">
+            <div class="stat-info">
+              <span class="stat-dice-value">9</span>
+              <span class="stat-count-value">0 veces</span>
+              <span class="stat-percentage-value">0%</span>
             </div>
+            <progress class="stat-progress-bar" value="0" max="100"></progress>
+          </li>
 
-            <div class="estadistica">
-              <span class="resultado">10</span>
-              <span class="conteo">0 veces</span>
-              <span class="porcentaje"> %</span>
-              <span class="estadistica-barra"></span>
+          <li class="stat">
+            <div class="stat-info">
+              <span class="stat-dice-value">10</span>
+              <span class="stat-count-value">0 veces</span>
+              <span class="stat-percentage-value">0%</span>
             </div>
+            <progress class="stat-progress-bar" value="0" max="100"></progress>
+          </li>
 
-            <div class="estadistica">
-              <span class="resultado">11</span>
-              <span class="conteo">0 veces</span>
-              <span class="porcentaje"> %</span>
-              <span class="estadistica-barra"></span>
+          <li class="stat">
+            <div class="stat-info">
+              <span class="stat-dice-value">11</span>
+              <span class="stat-count-value">0 veces</span>
+              <span class="stat-percentage-value">0%</span>
             </div>
-            
-            <div class="estadistica">
-              <span class="resultado">12</span>
-              <span class="conteo">0 veces</span>
-              <span class="porcentaje"> %</span>
-              <span class="estadistica-barra"></span>
+            <progress class="stat-progress-bar" value="0" max="100"></progress>
+          </li>
+          
+          <li class="stat">
+            <div class="stat-info">
+              <span class="stat-dice-value">12</span>
+              <span class="stat-count-value">0 veces</span>
+              <span class="stat-percentage-value">0%</span>
             </div>
+            <progress class="stat-progress-bar" value="0" max="100"></progress>
+          </li>
 
-          </div>
-          <!-- fin CONTENEDOR GENERAL DE ESTADISTICAS -->
-
-
-        </section>
-
-        <!-- FIN seccion estadisticas -->
-
-      <section class="timeline-container" id="timeline-container">
-        <h2 class="timeline-title">Historial de ultimas tiradas</h2>
-        <ul class="timeline-results" id="timeline">
-          <li class="timeline-result">
-            <span>2</span>
-            <div class="barra-result"></div>
-          </li>
-          <li class="timeline-result">
-            <span>3</span>
-            <div class="barra-result"></div>
-          </li>
-          <li class="timeline-result">
-            <span>4</span>
-            <div class="barra-result"></div>
-          </li>
-          <li class="timeline-result">
-            <span>5</span>
-            <div class="barra-result"></div>
-          </li>
-          <li class="timeline-result">
-            <span>6</span>
-            <div class="barra-result"></div>
-          </li>
-          <li class="timeline-result">
-            <span>7</span>
-            <div class="barra-result"></div>
-          </li>
-          <li class="timeline-result">
-            <span>8</span>
-            <div class="barra-result"></div>
-          </li>
-          <li class="timeline-result">
-            <span>9</span>
-            <div class="barra-result"></div>
-          </li>
-          <li class="timeline-result">
-            <span>10</span>
-            <div class="barra-result"></div>
-          </li>
-          <li class="timeline-result">
-            <span>11</span>
-            <div class="barra-result"></div>
-          </li>
-          <li class="timeline-result">
-            <span>12</span>
-            <div class="barra-result"></div>
-          </li>
-        </ul>
+        </ol>
       </section>
+      <!-- FIN seccion estadisticas -->
 
+    </main>
+
+    <footer class="footer">
+      <p class="footer-text">&copy; 2026 - Dice Simulator</p>
+    </footer>
+     
     <script src="js/script.js"></script>
   </body>
 

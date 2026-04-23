@@ -5,7 +5,7 @@
 @import url("components/header.css");
 @import url("components/footer.css");
 @import url("components/dice.css");
-@import url("components/timeline.css");
+@import url("components/stats.css");
 
 
 
@@ -38,11 +38,6 @@ html {
   --space-12: 48px;
   --space-16: 64px;
 
-}
-
-img {
-  width: 200px;
-  height: 200px;
 }
 
 body {
