@@ -1,5 +1,5 @@
 // Array con el historial de pares de dados
-const timeline = [];
+// const timeline = [];
 
 // Array finito de 11 elementos (valores posibles para las sumas)
 const frequencies = new Array(11).fill(0);
@@ -63,8 +63,8 @@ function roll() {
   }, 500);
 
   // Actualizar y renderizar timeline
-  timeline.push([dice1, dice2]);
-  renderTimeline();
+  // timeline.push([dice1, dice2]);
+  // renderTimeline();
 
   // Renderizamos sección de estadísticas por roll
   renderStats();
@@ -78,15 +78,19 @@ function roll() {
 function reset() {
   // Limpiamos todo
   rollCounter = 0;
+
   // timeline.length = 0;
+  
   frequencies.fill(0.0);
-  clearTimeline();
+  
+  // clearTimeline();
+
   // Renderizamos nuevamente
   animateDiceRoll("first-dice", "assets/img/dice-1.svg");
   animateDiceRoll("second-dice", "assets/img/dice-1.svg");
   animateDiceRoll("sum", "2");
   renderStats();
-  renderTimeline();
+  // renderTimeline();
 }
 
 // Animation handler para los dados y sum
@@ -111,35 +115,35 @@ function animateDiceRoll(id, newAsset) {
 
 // Refactorización: renderTimeline() ahora cumple con MVC
 // Función para renderizar la vista de la timeline sin modificar el modelo
-function renderTimeline() {
-  const maxItems = 10;
-  // validamos para no caer en undefined
-  const ul = document.getElementById("timeline");
-  if (timeline.length === 0 || ul.length === 0) return;
-  // Creamos el nuevo item con la data de timeline
-  const lastRoll = timeline[timeline.length - 1];
-  const li = document.createElement("li");
-  li.className = "timeline-item";
-  li.textContent = `${lastRoll[0]};${lastRoll[1]}`;
-  // Insertamos el item en la lista
-  ul.appendChild(li);
-  // Eliminamos el primer item de la lista para insertar otro nuevo luego de superar maxItems
-  if (ul.children.length > maxItems) {
-    ul.removeChild(ul.firstChild);
-  }
+// function renderTimeline() {
+//   const maxItems = 10;
+//   // validamos para no caer en undefined
+//   const ul = document.getElementById("timeline");
+//   if (timeline.length === 0 || ul.length === 0) return;
+//   // Creamos el nuevo item con la data de timeline
+//   const lastRoll = timeline[timeline.length - 1];
+//   const li = document.createElement("li");
+//   li.className = "timeline-item";
+//   li.textContent = `${lastRoll[0]};${lastRoll[1]}`;
+//   // Insertamos el item en la lista
+//   ul.appendChild(li);
+//   // Eliminamos el primer item de la lista para insertar otro nuevo luego de superar maxItems
+//   if (ul.children.length > maxItems) {
+//     ul.removeChild(ul.firstChild);
+//   }
 
-  // Alternamos background-color entre items
-  const offset = timeline.length - ul.children.length;
-  for (let i = 0; i < ul.children.length; i++) {
-    if ((i + offset) % 2 !== 0) {
-      ul.children[i].classList.add("red");
-    } else {
-      ul.children[i].classList.remove("red");
-    }
-  }
-}
+//   // Alternamos background-color entre items
+//   const offset = timeline.length - ul.children.length;
+//   for (let i = 0; i < ul.children.length; i++) {
+//     if ((i + offset) % 2 !== 0) {
+//       ul.children[i].classList.add("red");
+//     } else {
+//       ul.children[i].classList.remove("red");
+//     }
+//   }
+// }
 
-function clearTimeline() {
-  const ul = document.getElementById("timeline");
-  ul.innerHTML = "";
-}
+// function clearTimeline() {
+//   const ul = document.getElementById("timeline");
+//   ul.innerHTML = "";
+// }
