@@ -1,0 +1,11 @@
+@keyframes pop-up {
+  0% {
+    transform: scale(1.1) translate(2em);
+    transition: all 0.2s ease-in-out;
+  }
+
+  100% {
+    transform: scale(1) translate(0);
+    transition: all 0.2s ease-in-out;
+  }
+}
