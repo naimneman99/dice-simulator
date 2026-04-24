@@ -6,13 +6,17 @@
 @import url("components/footer.css");
 @import url("components/dice.css");
 @import url("components/stats.css");
-
-
+@import url("components/dice-animations.css");
+@import url("components/timeline.css");
+@import url("components/timeline-animations.css");
 
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -20,8 +24,8 @@ html {
 :root {
 
   /* Paleta COLORES*/
-  --color-primario: #139729;
-  --color-secundario: #cfcc18;
+  --color-primario: #000;
+  --color-secundario: #ecfa24;
   --color-texto: #686464;
 
   /* Tipografías*/
@@ -42,71 +46,6 @@ html {
 
 body {
   background-color: var(--color-primario);
+  font-family: 'Blinker';
+  background-image: radial-gradient(circle, #33ab00, rgba(46, 50, 45, 0.974));
 }
-
-
-/* body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-
-#dice-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* .dice {
-  width: 20vw;
-  height: 20vw;
-  max-width: 200px;
-  max-height: 200px;
-} */
-
-
-/* #sum {
-  background-color: #434343;
-  border-radius: 14px;
-  color: white;
-  width: 18vw;
-  height: 18vw;
-  max-width: 180px;
-  max-height: 180px;
-  align-self: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 10vw;
-}
-
-#timeline-container {
-  display: flex;
-  flex-direction: row;
-  align-self: center;
-  margin: 10px;
-}
-
-ul {
-  display: flex;
-  flex-direction: row;
-  align-self: center;
-  justify-content: center;
-  margin: 0px;
-  padding: 0px;
-}
-
-li {
-  width: 2rem;
-  list-style-type: none;
-  margin: 0px;
-  padding: 0px 0px 0px 2px;
-  background-color: #434343;
-  color: white;
-  border-color: #292929;
-  border-width: 2px 0px 2px 2px;
-  border-style: solid;
-} */ 

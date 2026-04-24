@@ -12,7 +12,7 @@
   align-items: center;
   padding: var(--space-4);
 
-  border-top: 1px solid var(--color-secundario);
+  border-top: 1px solid #848383;
 }
 
 .footer-title {
@@ -24,16 +24,15 @@
 }
 
 .footer-copy {
-  color: #000;
+  color: #FFF;
   font-size: var(--space-4);
 }
 
 .footer-git {
-
+  filter: invert(100%);
 }
 
 .footer-git-icon {
   width: 50px;
   height: 50px;
 }
-
