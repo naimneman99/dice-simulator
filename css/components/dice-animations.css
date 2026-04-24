@@ -1,0 +1,59 @@
+.dice:hover:not(.roll) {
+  transform: scale(1.1);
+  transform: skew(6deg, -6deg);
+  transition: transform 0.06s ease-in;
+}
+
+
+.dice:active:not(.roll) {
+  transform: scale(0.9);
+  transition: transform 0.1s ease-in;
+  filter: drop-shadow(0px 0px 1px #292929);
+}
+
+/* Animación para los dados */
+.roll:not(#sum) {
+  transform: rotate(-360deg) scale(0.333);
+  transition: transform 0.35s ease-in-out;
+}
+
+.reveal:not(#sum) {
+  animation: reveal 0.08s ease-in-out forwards;
+  transition: none;
+}
+
+/* Animación para sum*/
+.roll#sum {
+  transform: scale(0.3);
+  transition: transform 0.6s ease-in-out;
+}
+
+.reveal#sum {
+  transition: 0.3s ease-in-out;
+}
+
+
+@keyframes reveal {
+
+  /* Tiramos el dado */
+  0% {
+    transform: scale(0.1);
+  }
+
+  /* Choca contra el tope */
+  10% {
+    transform: scale(.666);
+    opacity: 0%;
+  }
+
+  /* Se detiene */
+  20% {
+    transform: scale(0.333);
+    opacity: 100%;
+  }
+
+  /* Se revela */
+  100% {
+    transform: scale(1);
+  }
+}
