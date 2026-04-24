@@ -18,14 +18,14 @@
     background-color: #fff;
     
     
-    padding: var(--space-5);
+    padding: var(--space-2);
     border: var(--space-2) solid var(--color-secundario);
     border-radius: var(--space-3);
 }
 
 .dice {
-    max-width: 300px;
-    max-height: 300px;
+    max-width: 200px;
+    max-height: 200px;
     
     width: auto;  
     height: auto;
