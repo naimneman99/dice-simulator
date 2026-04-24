@@ -12,6 +12,7 @@ Tirás dos dados y te muestra la suma obtenida. Durante la sesión lleva un regi
 - CSS3 con Flexbox para el layout y las animaciones
 - JavaScript vanilla para la lógica y manipulación del DOM
 - Git y GitHub para el trabajo colaborativo
+
 ## Estructura del proyecto
  
 ```
