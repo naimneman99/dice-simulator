@@ -1,5 +1,6 @@
 // Array con el historial de pares de dados
 const timeline = [];
+
 // Array finito de 11 elementos (valores posibles para las sumas)
 const frequencies = new Array(11).fill(0);
 let rollCounter = 0;
@@ -22,6 +23,7 @@ function initStats() {
       </li>`;
   }
 }
+
 function renderStats() {
   const rows = document.querySelectorAll(".stat"); // Devuelve listado completo de frecuencias
   // Recorre cada fila, conecta fila con el array
@@ -35,6 +37,7 @@ function renderStats() {
     row.querySelector(".stat-progress-bar").value = percentage;
   });
 }
+
 function roll() {
   // Randomizamos valores para los dados
   const dice1 = Math.ceil(Math.random() * 6);
@@ -75,7 +78,7 @@ function roll() {
 function reset() {
   // Limpiamos todo
   rollCounter = 0;
-  timeline.length = 0;
+  // timeline.length = 0;
   frequencies.fill(0.0);
   clearTimeline();
   // Renderizamos nuevamente
