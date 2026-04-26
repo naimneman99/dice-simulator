@@ -1,56 +1,61 @@
-/* css/components/buttons.css */
 
-/* 1. Contenedor: Alineación de simetría total */
+
 .btn-container {
-  display: flex;
-  /* 1. Activa el motor de alineación */
+display: flex;
   flex-direction: row;
-  /* 2. Los pone en fila (esto es por defecto) */
-  gap: 30px;
-  /* 3. El espacio entre los botones */
   justify-content: center;
-  /* Los centra en el medio de la pantalla */
   align-items: center;
-  /* Los nivela para que no esté uno más arriba que el otro */
+  gap: var(--space-5);
 }
 
-/* 2. Base Pill con toque Dorado (Astra Standard) */
 .btn-roll,
 .btn-reset {
+
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  padding: 14px 30px;
+
+  flex: 1; 
+  max-width: 120px;
+  
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  
+  border: 2px solid var(--color-resplandor);
   border-radius: 50px;
 
-  /* El toque dorado: Borde sólido de 2px */
-  border: 2px solid #FFD700;
-
-  font-family: 'Orbitron', sans-serif;
-  font-weight: 700;
-  color: #ffffff;
+  font-family: var(--fuente-principal);
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: var(--space-4);  
+  color: #fff;
   cursor: pointer;
   text-transform: uppercase;
+ 
+  /* Glow dorado base para separar del fondo */
+  box-shadow: 0 0 var(--space-4) var(--color-resplandor);
+
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
   overflow: hidden;
-
-  /* Glow dorado base para separar del fondo */
-  box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+}
+@media (min-width: 1024px) {
+  .btn-roll,
+  .btn-reset {
+    font-size: var(--space-5);
+    max-width: 160px;
+  }
 }
 
-/* 3. Iconos: Limpieza y contraste */
 .btn-icon {
-  width: 22px;
-  height: 22px;
-  /* Mantenemos el blanco para que no choque con el borde dorado */
-  filter: brightness(0) invert(1);
+  width: var(--space-6);
+  height: var(--space-6);
+  filter: invert(1);
   transition: transform 0.3s ease;
 }
 
-/* 4. Efecto de barrido de luz (High Performance) */
+/* Efecto de barrido de luz */
 .btn-roll::after,
 .btn-reset::after {
   content: '';
@@ -59,7 +64,7 @@
   left: -60%;
   width: 25%;
   height: 200%;
-  background: rgba(255, 215, 0, 0.3);
+  background: var(--color-resplandor);
   /* Reflejo dorado */
   transform: rotate(30deg);
   transition: all 0.6s;
@@ -70,89 +75,52 @@
   left: 130%;
 }
 
-/* --- LOGICA DE COLORES DE ACCIÓN --- */
 
-/* TIRAR / START: El motor del simulador */
 .btn-roll {
-  background-color: #1b5e20;
-  /* Verde muy oscuro para que el oro resalte */
+  background-color: var(--color-btn-roll);
 }
 
 .btn-roll:hover {
-  background-color: #27ae60;
-  /* El resplandor dorado se intensifica */
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+  background-color: var(--color-btn-roll-hover);
   transform: translateY(-4px) scale(1.05);
 }
 
+/* Efecto de rotación para el icono de los dados */
 .btn-roll:hover .btn-icon {
   transform: rotate(15deg);
-  /* Los dados "reaccionan" al hover */
 }
 
-/* RESET: El garbage collector */
 .btn-reset {
-  background-color: #0d47a1;
-  /* Azul profundo */
+  background-color: var(--color-btn-reset);
 }
 
 .btn-reset:hover {
-  background-color: #2980b9;
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+  background-color: var(--color-btn-reset-hover);
   transform: translateY(-4px) scale(1.05);
 }
 
+/* Efecto de rotación para el icono de la flecha */
 .btn-reset:hover .btn-icon {
   transform: rotate(-180deg);
-  /* La flecha gira al mantenimiento */
 }
 
-/* 5. Feedback de Clic (Active State) */
 .btn-roll:active,
 .btn-reset:active {
   transform: translateY(1px) scale(0.96);
-  box-shadow: 0 0 5px rgba(255, 215, 0, 0.8);
 }
 
-.btn-roll:disabled {
-  background-color: #304030;
+/* Estilo botones deshabilitados */
+.btn-roll:disabled, 
+.btn-reset:disabled {
+  background-color: var(--color-btn-disabled);
+  border-color: var(--color-btn-disabled);
   cursor: not-allowed;
   box-shadow: none;
   transform: none;
 }
 
-.btn-roll:disabled,
-.btn-roll:disabled:hover,
-.btn-roll:disabled:active {
-  background-color: #304030;
-  cursor: not-allowed;
-  box-shadow: none;
-  transform: none;
-  border-color: #555;
-}
 
-.btn-roll:disabled::after {
-  display: none;
-}
-
-
-/* Estado Deshabilitado para el botón de RESET */
-.btn-reset:disabled,
-.btn-reset:disabled:hover,
-.btn-reset:disabled:active {
-  /* Azul grisáceo muy oscuro para que se note que no hay "energía" */
-  background-color: #1a2a3a; 
-  
-  /* Apagamos el dorado a un gris oscuro */
-  border-color: #555555; 
-  
-  /* Quitamos efectos de mano y movimientos */
-  cursor: not-allowed;
-  box-shadow: none;
-  transform: none;
-}
-
-/* Opcional: Opacidad para el icono y texto cuando están deshabilitados */
+/* Opacidad para el icono y texto cuando están deshabilitados */
 .btn-roll:disabled .btn-icon,
 .btn-roll:disabled span,
 .btn-reset:disabled .btn-icon,

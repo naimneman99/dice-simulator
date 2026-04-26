@@ -7,8 +7,6 @@
 @import url("components/dice.css");
 @import url("components/stats.css");
 @import url("components/dice-animations.css");
-@import url("components/timeline.css");
-@import url("components/timeline-animations.css");
 
 html {
   box-sizing: border-box;
@@ -28,6 +26,14 @@ html {
   
   --color-secundario: #f5d742; 
   --color-resplandor: rgba(245, 215, 66, 0.4); /* Para la sombra/brillo del título */
+
+  --color-btn-reset: #0d47a1; /* Para el botón de reset */
+  --color-btn-reset-hover: #2980b9; /* Para el hover del botón reset */
+
+  --color-btn-roll: rgba(24, 61, 36, 1); ; /* Para el botón de roll */
+  --color-btn-roll-hover: #27ae60; /* Para el hover del botón roll */
+
+  --color-btn-disabled: #304030; /* Para el estado deshabilitado del botón roll */
   
   --color-texto-secundario: #98af9c; /* Gris verdoso claro para los textos normales */
 
