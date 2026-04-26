@@ -1,5 +1,3 @@
-// Array con el historial de pares de dados
-// const timeline = [];
 
 // Array finito de 11 elementos (valores posibles para las sumas)
 const frequencies = new Array(11).fill(0);
@@ -10,140 +8,155 @@ initStats();
 
 function initStats() {
   const ol = document.getElementById("stats-list");
+
+  ol.innerHTML = ""; // Limpiamos cualquier contenido previo
+
   // Generamos listado de frecuencias
   for (let i = 2; i <= 12; i++) {
     ol.innerHTML += `
       <li class="stat">
         <div class="stat-info">
-          <span class="stat-sum-value">${i}</span>
+          <span class="stat-dice-value">${i}</span>
           <span class="stat-count-value">0 veces</span>
           <span class="stat-percentage-value">0.0%</span>
         </div>
-        <progress class="stat-progress-bar" value="0" max="100"></progress>
+        <div class="stat-progress-bar">
+          <div class="stat-progress-bar-fill" style="width: 0%"></div>
+        </div>
       </li>`;
   }
 }
 
 function renderStats() {
-  const rows = document.querySelectorAll(".stat"); // Devuelve listado completo de frecuencias
-  // Recorre cada fila, conecta fila con el array
-  rows.forEach((row, index) => {
-    const times = frequencies[index];
-    const percentage = rollCounter > 0 ? (times * 100) / rollCounter : 0; // Calcula porcentaje usando contador
-    document.getElementById("rollCounter").innerHTML = rollCounter;
 
-    row.querySelector(".stat-percentage-value").textContent = `${percentage.toFixed(1)}%`; // Formate percentil con un decimal
+  // Actualizamos el contador total de tiradas
+  const counterElement = document.getElementById("rollCounter");
+  if (counterElement) {
+    counterElement.textContent = rollCounter;
+  }
+
+  // Traemos todas las filas de la lista de estadísticas y la recorremos para actualizar sus valores
+  const rows = document.querySelectorAll(".stat");
+  rows.forEach((row, index) => {
+    
+    // Obtenemos la cantidad de veces que se ha obtenido cada suma a partir del array de frecuencias
+    const times = frequencies[index];
+
+    // Calculamos el porcentaje respecto al total de tiradas
+    const percentage = rollCounter > 0 ? (times * 100) / rollCounter : 0;
+    
+    // Actualizamos los textos (Porcentaje y Cantidad)
+    row.querySelector(".stat-percentage-value").textContent = `${percentage.toFixed(1)}%`;
     row.querySelector(".stat-count-value").textContent = `${times} veces`;
-    row.querySelector(".stat-progress-bar").value = percentage;
+
+    // Actualizamos el ancho de la barra de progreso (DIV de relleno)
+    const fill = row.querySelector(".stat-progress-bar-fill");
+
+    if (fill) {
+      // Le pasamos el porcentaje directamente al ancho del CSS
+      fill.style.width = `${percentage}%`;
+    }
   });
 }
 
 function roll() {
-  // Randomizamos valores para los dados
+  
+  // Randomizamos valores para los dados (del 1 al 6)
   const dice1 = Math.ceil(Math.random() * 6);
   const dice2 = Math.ceil(Math.random() * 6);
+  
   const sum = dice1 + dice2;
 
-  // Aumentamos el acumulador con la suma correspondiente
-  frequencies[sum - 2]++;
-
+  // Actualizamos el contador total y el array de frecuencias
   rollCounter++;
-  document.getElementById("rollCounter").innerHTML = rollCounter;
+  frequencies[sum - 2]++;
+  
+  const btnRoll = document.getElementById("btn-roll");
+  btnRoll.disabled = true; // Evita múltiples clicks durante la animación
 
-  // Deshabiltamos btn-roll hasta que se muestren los dados
-  document.getElementById("btn-roll").disabled = true;
-
-  // Lanzar dados en escalera
-  animateDiceRoll("first-dice", `assets/img/dice-${dice1}.svg`);
+  // Animaciones en "escalera"
+  animateDiceRoll("first-dice", `assets/img/dice-${dice1}.svg`); // Animacion 1er dado
+    
   setTimeout(() => {
-    animateDiceRoll("second-dice", `assets/img/dice-${dice2}.svg`);
+      animateDiceRoll("second-dice", `assets/img/dice-${dice2}.svg`); // Animacion 2do dado
   }, 200);
+
+  // Mostramos el resultado de la suma más tarde
   setTimeout(() => {
-    animateDiceRoll("sum", `${sum}`);
-  }, 500);
-
-  // Actualizar y renderizar timeline
-  // timeline.push([dice1, dice2]);
-  // renderTimeline();
-
-  // Renderizamos sección de estadísticas por roll
-  renderStats();
-
-  // Volvemos a habilitar btn-roll
+      animateDiceRoll("sum", sum); // Animacion resultado suma 
+    }, 500);
+    
+  // Actualizamos estadísticas después de mostrar la suma
+  // 800ms (giro) + 500ms (revelación) = 1300ms totales de los dados
   setTimeout(() => {
-    document.getElementById("btn-roll").disabled = false;
-  }, 1400);
+    renderStats();
+  }, 1300);
+  
+  
+  // REHABILITAR EL BOTÓN - Esperamos a que terminen las animaciones antes de permitir otro roll
+  setTimeout(() => {
+      btnRoll.disabled = false;
+  }, 1800);
+
 }
 
 function reset() {
-  // Limpiamos todo
-  rollCounter = 0;
 
-  // timeline.length = 0;
-  
+  // Bloqueamos el botón de tirar y el de reset mientras se reinician las estadísticas y se renderizan los dados a su estado inicial
+  const btnRoll = document.getElementById("btn-roll");
+  const btnReset = document.getElementById("btn-reset");
+  btnRoll.disabled = true;
+  btnReset.disabled = true;
+
+  rollCounter = 0;
   frequencies.fill(0.0);
   
-  // clearTimeline();
-
+  
   // Renderizamos nuevamente
   animateDiceRoll("first-dice", "assets/img/dice-1.svg");
   animateDiceRoll("second-dice", "assets/img/dice-1.svg");
-  animateDiceRoll("sum", "2");
+  animateDiceRoll("sum", "2"); // valor por defecto para la suma (2)
   renderStats();
-  // renderTimeline();
+  
+  // Rehabilitamos los botones cuando esten por terminar las animaciones
+  setTimeout(() => {
+    btnRoll.disabled = false;
+    btnReset.disabled = false;
+  }, 1400);
 }
 
-// Animation handler para los dados y sum
+
 function animateDiceRoll(id, newAsset) {
+
   const dice = document.getElementById(id);
-  // Transiciona de roll a reveal
-  dice.classList.add("roll");
-  // Timeout de 0s para que no se superpongan las clases en mismo frame
+  if (!dice) return; // valida que el elemento exista
+
+  dice.classList.add("roll"); // Ejecuta roll animation - efecto de "giro"
+
   setTimeout(() => {
-    dice.classList.remove("roll");
+    dice.classList.remove("roll"); // Quitamos la clase de roll 
+    
+    // Timeout de 0s para que no se superpongan las clases en mismo frame
     setTimeout(() => {
+
       // Actualizamos imagen con el dado correspondiente
-      if (newAsset !== undefined) dice.src = newAsset;
+      if (id !== "sum" && newAsset !== undefined) {
+        dice.src = newAsset;
+      }
+      
       // Si el parametro es sum actualizamos con su valor correspondiente
-      if (id === "sum") dice.textContent = newAsset;
-      // Ejecuta reveal animation
+      if (id === "sum") {
+          dice.textContent = newAsset;
+      }
+      
+      // Ejecuta reveal animation - efecto de "aparición"
       dice.classList.add("reveal");
-      setTimeout(() => dice.classList.remove("reveal"), 500);
+      
+      // Quitamos la clase de reveal cuando termine la animacion (500ms) para que pueda volver a aplicarse en el próximo roll
+      setTimeout(() => {
+        dice.classList.remove("reveal");
+      }, 500);
+
     }, 0);
   }, 800);
 }
-
-// Refactorización: renderTimeline() ahora cumple con MVC
-// Función para renderizar la vista de la timeline sin modificar el modelo
-// function renderTimeline() {
-//   const maxItems = 10;
-//   // validamos para no caer en undefined
-//   const ul = document.getElementById("timeline");
-//   if (timeline.length === 0 || ul.length === 0) return;
-//   // Creamos el nuevo item con la data de timeline
-//   const lastRoll = timeline[timeline.length - 1];
-//   const li = document.createElement("li");
-//   li.className = "timeline-item";
-//   li.textContent = `${lastRoll[0]};${lastRoll[1]}`;
-//   // Insertamos el item en la lista
-//   ul.appendChild(li);
-//   // Eliminamos el primer item de la lista para insertar otro nuevo luego de superar maxItems
-//   if (ul.children.length > maxItems) {
-//     ul.removeChild(ul.firstChild);
-//   }
-
-//   // Alternamos background-color entre items
-//   const offset = timeline.length - ul.children.length;
-//   for (let i = 0; i < ul.children.length; i++) {
-//     if ((i + offset) % 2 !== 0) {
-//       ul.children[i].classList.add("red");
-//     } else {
-//       ul.children[i].classList.remove("red");
-//     }
-//   }
-// }
-
-// function clearTimeline() {
-//   const ul = document.getElementById("timeline");
-//   ul.innerHTML = "";
-// }

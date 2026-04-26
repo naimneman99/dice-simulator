@@ -1,7 +1,12 @@
 
 .header {
     text-align: center;
-    padding-top: var(--space-8);
+    padding: var(--space-6);
+}
+@media (min-width: 1024px) {
+    .header {
+        padding: var(--space-8) 0 0 0;
+    }
 }
 
 .header-title {
@@ -22,10 +27,15 @@
 
 .header-subtitle {
     color: var(--color-texto-secundario);
-    font-size: var(--space-4);
+    font-size: var(--space-3);
     font-family: var(--fuente-principal);
     text-transform: uppercase;
     letter-spacing: 4px;
     margin-top: var(--space-5);
     font-weight: 500;
+}
+@media (min-width: 1024px) {
+    .header-subtitle {
+        font-size: var(--space-5);
+    }
 }

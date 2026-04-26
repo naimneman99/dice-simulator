@@ -26,14 +26,21 @@
     box-shadow: inset 0 0 var(--space-4) var(--color-fondo-oscuro);
 }
 
+
 .dice {
-    width: 150px;  
-    height: 150px;
+    width: 100px;  
+    height: 100px;
     
     /* CENTRAR LA IMAGEN EN EL CONTENEDOR */
     display: flex;
     align-items: center;
     justify-content: center;
+}
+@media (min-width: 1024px) {
+    .dice {
+        width: 150px;  
+        height: 150px;
+    }
 }
 
 .dice-img {
@@ -52,7 +59,7 @@
     align-items: center;
     gap: var(--space-2);
 
-    margin-bottom: var(--space-5);
+    margin-bottom: var(--space-8);
 }
 
 .dice-sum-title {
@@ -61,23 +68,37 @@
     text-transform: uppercase;
     font-size: var(--space-5);
     letter-spacing: 2px;
+
+    margin: var(--space-3) 0;
+}
+@media (min-width: 1024px) {
+    .dice-sum-title {
+        margin: var(--space-5) 0;
+    }
 }
 
 .dice-sum-value {
-
+    
     font-family: var(--fuente-numeros); 
-    font-size: var(--space-16);
+    font-size: var(--space-12);
     font-weight: bold;
     
     color: var(--color-fondo-oscuro); 
     background-color: var(--color-secundario);
     
-    min-width: 100px;
+    min-width: 80px;
     margin: 0;
-    padding: var(--space-3) var(--space-8);
+    padding: var(--space-2) var(--space-6);
     border-radius: var(--space-2);
     
     box-shadow: 0 0 var(--space-4) var(--color-resplandor);
     
     display: inline-block; /* Para que el tamaño se ajuste al contenido y se centre correctamente */
+}
+@media (min-width: 1024px) {
+    .dice-sum-value {
+        font-size: var(--space-16);
+        padding: var(--space-3) var(--space-8);
+        min-width: 100px;
+    }
 }

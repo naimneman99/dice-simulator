@@ -23,8 +23,8 @@ html {
 
 :root {
   /* Paleta COLORES */
-  --color-fondo-oscuro: #0b1c11; 
-  --color-fondo-claro: #183d24; 
+  --color-fondo-oscuro: rgba(11, 28, 17, 1); 
+  --color-fondo-claro: rgba(24, 61, 36, 1); 
   
   --color-secundario: #f5d742; 
   --color-resplandor: rgba(245, 215, 66, 0.4); /* Para la sombra/brillo del título */

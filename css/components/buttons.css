@@ -134,3 +134,35 @@
 .btn-roll:disabled::after {
   display: none;
 }
+
+
+/* Estado Deshabilitado para el botón de RESET */
+.btn-reset:disabled,
+.btn-reset:disabled:hover,
+.btn-reset:disabled:active {
+  /* Azul grisáceo muy oscuro para que se note que no hay "energía" */
+  background-color: #1a2a3a; 
+  
+  /* Apagamos el dorado a un gris oscuro */
+  border-color: #555555; 
+  
+  /* Quitamos efectos de mano y movimientos */
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Opcional: Opacidad para el icono y texto cuando están deshabilitados */
+.btn-roll:disabled .btn-icon,
+.btn-roll:disabled span,
+.btn-reset:disabled .btn-icon,
+.btn-reset:disabled span {
+  opacity: 0.4;
+  filter: grayscale(1);
+}
+
+/* Bloqueamos el efecto de barrido de luz (::after) cuando están deshabilitados */
+.btn-roll:disabled::after,
+.btn-reset:disabled::after {
+  display: none;
+}
