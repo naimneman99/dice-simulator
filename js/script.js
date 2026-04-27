@@ -60,7 +60,7 @@ function renderStats() {
 }
 
 function roll() {
-  
+  playDiceSound(); // Dispara el pitido sintetizado
   // Randomizamos valores para los dados (del 1 al 6)
   const dice1 = Math.ceil(Math.random() * 6);
   const dice2 = Math.ceil(Math.random() * 6);
@@ -101,6 +101,7 @@ function roll() {
 }
 
 function reset() {
+  playDiceSound(); // Dispara el pitido sintetizado
 
   // Bloqueamos el botón de tirar y el de reset mientras se reinician las estadísticas y se renderizan los dados a su estado inicial
   const btnRoll = document.getElementById("btn-roll");
@@ -159,4 +160,29 @@ function animateDiceRoll(id, newAsset) {
 
     }, 0);
   }, 800);
+}
+// 1. Pegás tu función en script.js
+function playDiceSound() {
+  try {
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    const now = audioContext.currentTime;
+    
+    const osc = audioContext.createOscillator();
+    const gain = audioContext.createGain();
+    
+    osc.connect(gain);
+    gain.connect(audioContext.destination);
+    
+    osc.frequency.setValueAtTime(300, now);
+    osc.frequency.exponentialRampToValueAtTime(150, now + 0.1);
+    osc.type = 'triangle';
+    
+    gain.gain.setValueAtTime(0.3, now);
+    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.15);
+    
+    osc.start(now);
+    osc.stop(now + 0.15);
+  } catch (e) {
+    console.log('Audio no disponible');
+  }
 }
