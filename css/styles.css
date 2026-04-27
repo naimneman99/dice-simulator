@@ -1,22 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
 @import url("components/buttons.css");
-@import url("normalize.css");
 @import url("components/grids.css");
 @import url("components/header.css");
 @import url("components/footer.css");
 @import url("components/dice.css");
 @import url("components/stats.css");
 @import url("components/dice-animations.css");
-
-html {
-  box-sizing: border-box;
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
 
 
 :root {

@@ -161,7 +161,8 @@ function animateDiceRoll(id, newAsset) {
     }, 0);
   }, 800);
 }
-// 1. Pegás tu función en script.js
+
+
 function playDiceSound() {
   try {
     const audioContext = new (window.AudioContext || window.webkitAudioContext)();

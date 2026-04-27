@@ -52,7 +52,7 @@
     font-weight: bold;
 
     /* TRUCO: Ancho fijo para que el siguiente elemento empiece siempre igual */    
-    width: 40px;
+    width: 50px;
     text-align: left;
 }
 
@@ -76,7 +76,7 @@
     letter-spacing: 2px;
 
     /* TRUCO: Ancho fijo para que el centro no se mueva */
-    width: 80px; 
+    width: 50px; 
     text-align: right;
 }
 
