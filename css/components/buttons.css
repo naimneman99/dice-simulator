@@ -1,0 +1,136 @@
+
+
+.btn-container {
+display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.btn-roll,
+.btn-reset {
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  flex: 1; 
+  max-width: 120px;
+  
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  
+  border: 2px solid var(--color-resplandor);
+  border-radius: 50px;
+
+  font-family: var(--fuente-principal);
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: var(--space-4);  
+  color: #fff;
+  cursor: pointer;
+  text-transform: uppercase;
+ 
+  /* Glow dorado base para separar del fondo */
+  box-shadow: 0 0 var(--space-4) var(--color-resplandor);
+
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+@media (min-width: 1024px) {
+  .btn-roll,
+  .btn-reset {
+    font-size: var(--space-5);
+    max-width: 160px;
+  }
+}
+
+.btn-icon {
+  width: var(--space-6);
+  height: var(--space-6);
+  filter: invert(1);
+  transition: transform 0.3s ease;
+}
+
+/* Efecto de barrido de luz */
+.btn-roll::after,
+.btn-reset::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 25%;
+  height: 200%;
+  background: var(--color-resplandor);
+  /* Reflejo dorado */
+  transform: rotate(30deg);
+  transition: all 0.6s;
+}
+
+.btn-roll:hover::after,
+.btn-reset:hover::after {
+  left: 130%;
+}
+
+
+.btn-roll {
+  background-color: var(--color-btn-roll);
+}
+
+.btn-roll:hover {
+  background-color: var(--color-btn-roll-hover);
+  transform: translateY(-4px) scale(1.05);
+}
+
+/* Efecto de rotación para el icono de los dados */
+.btn-roll:hover .btn-icon {
+  transform: rotate(15deg);
+}
+
+.btn-reset {
+  background-color: var(--color-btn-reset);
+}
+
+.btn-reset:hover {
+  background-color: var(--color-btn-reset-hover);
+  transform: translateY(-4px) scale(1.05);
+}
+
+/* Efecto de rotación para el icono de la flecha */
+.btn-reset:hover .btn-icon {
+  transform: rotate(-180deg);
+}
+
+.btn-roll:active,
+.btn-reset:active {
+  transform: translateY(1px) scale(0.96);
+}
+
+/* Estilo botones deshabilitados */
+.btn-roll:disabled, 
+.btn-reset:disabled {
+  background-color: var(--color-btn-disabled);
+  border-color: var(--color-btn-disabled);
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+
+/* Opacidad para el icono y texto cuando están deshabilitados */
+.btn-roll:disabled .btn-icon,
+.btn-roll:disabled span,
+.btn-reset:disabled .btn-icon,
+.btn-reset:disabled span {
+  opacity: 0.4;
+  filter: grayscale(1);
+}
+
+/* Bloqueamos el efecto de barrido de luz (::after) cuando están deshabilitados */
+.btn-roll:disabled::after,
+.btn-reset:disabled::after {
+  display: none;
+}

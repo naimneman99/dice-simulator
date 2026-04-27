@@ -1,0 +1,104 @@
+@keyframes shake-dice {
+    0% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(15deg) scale(1.1); }
+    50% { transform: rotate(-15deg) scale(1.1); }
+    75% { transform: rotate(10deg) scale(1.1); }
+    100% { transform: rotate(0deg) scale(1); }
+}
+
+.animar-dice {
+    animation: shake-dice 0.5s ease-in-out;
+}
+
+.dices {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-4);
+    
+    background-color: var(--color-fondo-claro);
+    padding: var(--space-2);
+    
+    border: 1px solid var(--color-resplandor);
+    border-radius: var(--space-3);
+    
+    /* Sombra interna para dar profundidad */
+    box-shadow: inset 0 0 var(--space-4) var(--color-fondo-oscuro);
+}
+
+
+.dice {
+    width: 100px;  
+    height: 100px;
+    
+    /* CENTRAR LA IMAGEN EN EL CONTENEDOR */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@media (min-width: 1024px) {
+    .dice {
+        width: 150px;  
+        height: 150px;
+    }
+}
+
+.dice-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Evita que la imagen se distorsione */
+    display: block; /* Elimina el espacio debajo de la imagen */
+}
+
+.dice-sum {
+    margin: 0 auto;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+
+    margin-bottom: var(--space-8);
+}
+
+.dice-sum-title {
+    color: var(--color-texto-secundario);
+    font-family: var(--fuente-principal);
+    text-transform: uppercase;
+    font-size: var(--space-5);
+    letter-spacing: 2px;
+
+    margin: var(--space-3) 0;
+}
+@media (min-width: 1024px) {
+    .dice-sum-title {
+        margin: var(--space-5) 0;
+    }
+}
+
+.dice-sum-value {
+    
+    font-family: var(--fuente-numeros); 
+    font-size: var(--space-12);
+    font-weight: bold;
+    
+    color: var(--color-fondo-oscuro); 
+    background-color: var(--color-secundario);
+    
+    min-width: 80px;
+    margin: 0;
+    padding: var(--space-2) var(--space-6);
+    border-radius: var(--space-2);
+    
+    box-shadow: 0 0 var(--space-4) var(--color-resplandor);
+    
+    display: inline-block; /* Para que el tamaño se ajuste al contenido y se centre correctamente */
+}
+@media (min-width: 1024px) {
+    .dice-sum-value {
+        font-size: var(--space-16);
+        padding: var(--space-3) var(--space-8);
+        min-width: 100px;
+    }
+}

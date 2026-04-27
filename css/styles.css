@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+@import url("components/buttons.css");
+@import url("components/grids.css");
+@import url("components/header.css");
+@import url("components/footer.css");
+@import url("components/dice.css");
+@import url("components/stats.css");
+@import url("components/dice-animations.css");
+
+
+:root {
+  /* Paleta COLORES */
+  --color-fondo-oscuro: rgba(11, 28, 17, 1); 
+  --color-fondo-claro: rgba(24, 61, 36, 1); 
+  
+  --color-secundario: #f5d742; 
+  --color-resplandor: rgba(245, 215, 66, 0.4); /* Para la sombra/brillo del título */
+
+  --color-btn-reset: #0d47a1; /* Para el botón de reset */
+  --color-btn-reset-hover: #2980b9; /* Para el hover del botón reset */
+
+  --color-btn-roll: rgba(24, 61, 36, 1); ; /* Para el botón de roll */
+  --color-btn-roll-hover: #27ae60; /* Para el hover del botón roll */
+
+  --color-btn-disabled: #304030; /* Para el estado deshabilitado del botón roll */
+  
+  --color-texto-secundario: #98af9c; /* Gris verdoso claro para los textos normales */
+
+  /* Tipografías */
+  --fuente-principal: 'Blinker', system-ui, sans-serif;
+  --fuente-numeros: 'Squada One', 'Teko', sans-serif; 
+
+  /* Regla de los 4px */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+}
+
+body {
+  background: linear-gradient(90deg,rgba(11, 28, 17, 1) 0%, rgba(24, 61, 36, 1) 100%);
+}
