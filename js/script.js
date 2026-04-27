@@ -1,73 +1,162 @@
-// HISTORIAL INICIALIZADO VACIO
-const timeline = [];
 
-// CONTADOR RESULTADOS
-let contadorresultados = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+// Array finito de 11 elementos (valores posibles para las sumas)
+const frequencies = new Array(11).fill(0);
+let rollCounter = 0;
 
-// CONTADOR INICIALIZADO EN 0
-let counter = 0;
+// Inicializamos la sección de estadísticas
+initStats();
 
-// LOGICA DE TIRADA
-function roll() {
-  const dice1 = Math.ceil(Math.random() * 6);
-  const dice2 = Math.ceil(Math.random() * 6);
-  const sum = dice1 + dice2;
-  counter = counter + 1;
-  timeline.push([dice1, dice2]);
+function initStats() {
+  const ol = document.getElementById("stats-list");
 
-  sumacontador(sum);
+  ol.innerHTML = ""; // Limpiamos cualquier contenido previo
 
-  document.getElementById("first-dice").src = `assets/img/dice-${dice1}.svg`;
-  document.getElementById("second-dice").src = `assets/img/dice-${dice2}.svg`;
-  document.getElementById("sum").textContent = `${sum}`;
-  document.getElementById("counter").textContent = counter;
-  renderTimeline();
-  renderStats();
-}
-
-// RENDERIZADO DE HISTORIAL DE TIRADAS
-function renderTimeline() {
-  const last10 = timeline.slice(-10);
-  const ul = document.getElementById("timeline");
-  ul.innerHTML = last10
-    .map((pair) => `<li>${pair[0]}<small>&</small>${pair[1]}</li>`)
-    .join("");
-}
-
-// FUNCION RESET A ESTADO INICIAL
-function reset() {
-  timeline.length = 0;
-  counter = 0;
-  contadorresultados = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-  document.getElementById("sum").textContent = "0";
-  document.getElementById("first-dice").src = "assets/img/dice-1.svg";
-  document.getElementById("second-dice").src = "assets/img/dice-1.svg";
-  document.getElementById("counter").textContent = "0";
-  renderTimeline();
-  renderStats();
-}
-
-// FUNCION CONTADOR DE SUMAS
-function sumacontador(sum) {
-  if (sum >= 2 && sum <= 12) {
-    contadorresultados[sum - 2] = contadorresultados[sum - 2] + 1;
+  // Generamos listado de frecuencias
+  for (let i = 2; i <= 12; i++) {
+    ol.innerHTML += `
+      <li class="stat">
+        <div class="stat-info">
+          <span class="stat-dice-value">${i}</span>
+          <span class="stat-count-value">0 veces</span>
+          <span class="stat-percentage-value">0.0%</span>
+        </div>
+        <div class="stat-progress-bar">
+          <div class="stat-progress-bar-fill" style="width: 0%"></div>
+        </div>
+      </li>`;
   }
 }
 
 function renderStats() {
-  const filas = document.querySelectorAll(".estadistica"); // BUSCA TODAS LAS FILAS MEDIANTE "estadistica" USADO EN CLASS
 
-  filas.forEach((fila, index) => {
-    // RECORRE CADA FILA, CONECTA FILA CON EL ARRAY
-    const veces = contadorresultados[index];
-    const porcentaje = counter > 0 ? (veces * 100) / counter : 0; // CALCULA PORCENTAJE USANDO CONTADOR
+  // Actualizamos el contador total de tiradas
+  const counterElement = document.getElementById("rollCounter");
+  if (counterElement) {
+    counterElement.textContent = rollCounter;
+  }
 
-    const contadorSpan = fila.querySelector(".conteo"); // BUSCA DONDE VA A MOSTRAR CUANTAS VECES SALIO
-    const porcentajeSpan = fila.querySelector(".porcentaje"); // BUSCA DONDE VA A MOSTRAR EL PORCENTAJE
-    const barra = fila.querySelector(".estadistica-barra"); // BUSCA LA BARRA VISUAL
+  // Traemos todas las filas de la lista de estadísticas y la recorremos para actualizar sus valores
+  const rows = document.querySelectorAll(".stat");
+  rows.forEach((row, index) => {
+    
+    // Obtenemos la cantidad de veces que se ha obtenido cada suma a partir del array de frecuencias
+    const times = frequencies[index];
 
-    contadorSpan.textContent = `${veces} veces`; // ESCRIBE NUMERO DE APARICIONES
-    porcentajeSpan.textContent = `${porcentaje.toFixed(1)} %`; // ESCRIBE PORCENTAJE CON UN DECIMAL
-    barra.style.width = `${porcentaje}%`; // HACE QUE CREZCA LA BARRA SEGUN PORCENTAJE
+    // Calculamos el porcentaje respecto al total de tiradas
+    const percentage = rollCounter > 0 ? (times * 100) / rollCounter : 0;
+    
+    // Actualizamos los textos (Porcentaje y Cantidad)
+    row.querySelector(".stat-percentage-value").textContent = `${percentage.toFixed(1)}%`;
+    row.querySelector(".stat-count-value").textContent = `${times} veces`;
+
+    // Actualizamos el ancho de la barra de progreso (DIV de relleno)
+    const fill = row.querySelector(".stat-progress-bar-fill");
+
+    if (fill) {
+      // Le pasamos el porcentaje directamente al ancho del CSS
+      fill.style.width = `${percentage}%`;
+    }
   });
+}
+
+function roll() {
+  
+  // Randomizamos valores para los dados (del 1 al 6)
+  const dice1 = Math.ceil(Math.random() * 6);
+  const dice2 = Math.ceil(Math.random() * 6);
+  
+  const sum = dice1 + dice2;
+
+  // Actualizamos el contador total y el array de frecuencias
+  rollCounter++;
+  frequencies[sum - 2]++;
+  
+  const btnRoll = document.getElementById("btn-roll");
+  btnRoll.disabled = true; // Evita múltiples clicks durante la animación
+
+  // Animaciones en "escalera"
+  animateDiceRoll("first-dice", `assets/img/dice-${dice1}.svg`); // Animacion 1er dado
+    
+  setTimeout(() => {
+      animateDiceRoll("second-dice", `assets/img/dice-${dice2}.svg`); // Animacion 2do dado
+  }, 200);
+
+  // Mostramos el resultado de la suma más tarde
+  setTimeout(() => {
+      animateDiceRoll("sum", sum); // Animacion resultado suma 
+    }, 500);
+    
+  // Actualizamos estadísticas después de mostrar la suma
+  // 800ms (giro) + 500ms (revelación) = 1300ms totales de los dados
+  setTimeout(() => {
+    renderStats();
+  }, 1300);
+  
+  
+  // REHABILITAR EL BOTÓN - Esperamos a que terminen las animaciones antes de permitir otro roll
+  setTimeout(() => {
+      btnRoll.disabled = false;
+  }, 1800);
+
+}
+
+function reset() {
+
+  // Bloqueamos el botón de tirar y el de reset mientras se reinician las estadísticas y se renderizan los dados a su estado inicial
+  const btnRoll = document.getElementById("btn-roll");
+  const btnReset = document.getElementById("btn-reset");
+  btnRoll.disabled = true;
+  btnReset.disabled = true;
+
+  rollCounter = 0;
+  frequencies.fill(0.0);
+  
+  
+  // Renderizamos nuevamente
+  animateDiceRoll("first-dice", "assets/img/dice-1.svg");
+  animateDiceRoll("second-dice", "assets/img/dice-1.svg");
+  animateDiceRoll("sum", "2"); // valor por defecto para la suma (2)
+  renderStats();
+  
+  // Rehabilitamos los botones cuando esten por terminar las animaciones
+  setTimeout(() => {
+    btnRoll.disabled = false;
+    btnReset.disabled = false;
+  }, 1400);
+}
+
+
+function animateDiceRoll(id, newAsset) {
+
+  const dice = document.getElementById(id);
+  if (!dice) return; // valida que el elemento exista
+
+  dice.classList.add("roll"); // Ejecuta roll animation - efecto de "giro"
+
+  setTimeout(() => {
+    dice.classList.remove("roll"); // Quitamos la clase de roll 
+    
+    // Timeout de 0s para que no se superpongan las clases en mismo frame
+    setTimeout(() => {
+
+      // Actualizamos imagen con el dado correspondiente
+      if (id !== "sum" && newAsset !== undefined) {
+        dice.src = newAsset;
+      }
+      
+      // Si el parametro es sum actualizamos con su valor correspondiente
+      if (id === "sum") {
+          dice.textContent = newAsset;
+      }
+      
+      // Ejecuta reveal animation - efecto de "aparición"
+      dice.classList.add("reveal");
+      
+      // Quitamos la clase de reveal cuando termine la animacion (500ms) para que pueda volver a aplicarse en el próximo roll
+      setTimeout(() => {
+        dice.classList.remove("reveal");
+      }, 500);
+
+    }, 0);
+  }, 800);
 }

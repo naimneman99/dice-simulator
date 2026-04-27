@@ -1,0 +1,99 @@
+.stats-title {
+    font-size: var(--space-8); /* 32px */
+    color: var(--color-secundario);
+    font-family: var(--fuente-principal);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    
+    text-shadow: 0 0 var(--space-4) var(--color-resplandor);
+
+    margin: 0;
+}
+
+.stats-total {
+    font-size: var(--space-5);
+    color: var(--color-texto-secundario);
+    font-family: var(--fuente-principal);
+    letter-spacing: 1px;
+
+    border-bottom: 1px solid var(--color-resplandor); /* Una línea divisoria sutil */
+    padding-bottom: var(--space-3);
+    
+    margin-bottom: var(--space-2);
+}
+
+.stats-total span {
+    color: var(--color-secundario);
+    font-weight: bold;
+}
+
+.stats-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.stat {
+    margin: var(--space-4) 0;
+}
+
+.stat-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: var(--space-1) var(--space-3);
+}
+
+.stat-dice-value {
+    font-family: var(--fuente-principal);
+    font-size: var(--space-5);
+    color: var(--color-secundario);
+    font-weight: bold;
+
+    /* TRUCO: Ancho fijo para que el siguiente elemento empiece siempre igual */    
+    width: 40px;
+    text-align: left;
+}
+
+.stat-count-value {
+    font-size: var(--space-5);
+    color: var(--color-secundario);
+    font-family: var(--fuente-principal);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    /* Texto se alineado al medio */
+    text-align: center;
+}
+
+.stat-percentage-value {
+    font-family: var(--fuente-principal);
+    font-size: var(--space-5);
+    color: var(--color-secundario);
+    font-weight: bold;
+    letter-spacing: 2px;
+
+    /* TRUCO: Ancho fijo para que el centro no se mueva */
+    width: 80px; 
+    text-align: right;
+}
+
+.stat-progress-bar {
+    width: 100%;
+    height: var(--space-5);
+    background: linear-gradient(90deg, var(--color-fondo-oscuro) 0%, var(--color-fondo-claro) 100%);
+    border-radius: var(--space-1);
+    overflow: hidden;
+
+    border: 1px solid var(--color-resplandor);
+}
+
+.stat-progress-bar-fill{
+    height: 100%;
+    width: 0%; /* El JS modifica el ancho */
+    background-color: var(--color-secundario);
+    box-shadow: 0 0 var(--space-4) var(--color-resplandor);
+    transition: width 0.5s ease-out;
+}

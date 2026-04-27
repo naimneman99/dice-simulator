@@ -5,29 +5,43 @@
 @import url("components/header.css");
 @import url("components/footer.css");
 @import url("components/dice.css");
-@import url("components/timeline.css");
-
-
+@import url("components/stats.css");
+@import url("components/dice-animations.css");
 
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
 
 :root {
+  /* Paleta COLORES */
+  --color-fondo-oscuro: rgba(11, 28, 17, 1); 
+  --color-fondo-claro: rgba(24, 61, 36, 1); 
+  
+  --color-secundario: #f5d742; 
+  --color-resplandor: rgba(245, 215, 66, 0.4); /* Para la sombra/brillo del título */
 
-  /* Paleta COLORES*/
-  --color-primario: #139729;
-  --color-secundario: #cfcc18;
-  --color-texto: #686464;
+  --color-btn-reset: #0d47a1; /* Para el botón de reset */
+  --color-btn-reset-hover: #2980b9; /* Para el hover del botón reset */
 
-  /* Tipografías*/
+  --color-btn-roll: rgba(24, 61, 36, 1); ; /* Para el botón de roll */
+  --color-btn-roll-hover: #27ae60; /* Para el hover del botón roll */
+
+  --color-btn-disabled: #304030; /* Para el estado deshabilitado del botón roll */
+  
+  --color-texto-secundario: #98af9c; /* Gris verdoso claro para los textos normales */
+
+  /* Tipografías */
   --fuente-principal: 'Blinker', system-ui, sans-serif;
+  --fuente-numeros: 'Squada One', 'Teko', sans-serif; 
 
-  /* Regla de los 4px*/
+  /* Regla de los 4px */
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -37,81 +51,8 @@ html {
   --space-8: 32px;
   --space-12: 48px;
   --space-16: 64px;
-
-}
-
-img {
-  width: 200px;
-  height: 200px;
 }
 
 body {
-  background-color: var(--color-primario);
+  background: linear-gradient(90deg,rgba(11, 28, 17, 1) 0%, rgba(24, 61, 36, 1) 100%);
 }
-
-
-/* body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-
-#dice-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* .dice {
-  width: 20vw;
-  height: 20vw;
-  max-width: 200px;
-  max-height: 200px;
-} */
-
-
-/* #sum {
-  background-color: #434343;
-  border-radius: 14px;
-  color: white;
-  width: 18vw;
-  height: 18vw;
-  max-width: 180px;
-  max-height: 180px;
-  align-self: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 10vw;
-}
-
-#timeline-container {
-  display: flex;
-  flex-direction: row;
-  align-self: center;
-  margin: 10px;
-}
-
-ul {
-  display: flex;
-  flex-direction: row;
-  align-self: center;
-  justify-content: center;
-  margin: 0px;
-  padding: 0px;
-}
-
-li {
-  width: 2rem;
-  list-style-type: none;
-  margin: 0px;
-  padding: 0px 0px 0px 2px;
-  background-color: #434343;
-  color: white;
-  border-color: #292929;
-  border-width: 2px 0px 2px 2px;
-  border-style: solid;
-} */ 
